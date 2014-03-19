@@ -5,9 +5,16 @@
 <div id="templates" style="display:none">
  <div id="quizzes">
   {{#each quizzes}}
-      <h1>{{name}}</h1>
-      <p>{{quiz_id}}</p>
+      <a href="/quizzes/{{quiz_id}}/questions/next.json">{{name}}</a>
   {{/each}}
   </div>
-</div>
 
+<div id="question">
+  <h2>{{question}}</h2>
+  <ul>
+    {{#each choices}}
+    <li>{{this.choice}}</li>
+    {{/each}}
+  </ul>
+</div>
+</div>

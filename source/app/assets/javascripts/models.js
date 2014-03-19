@@ -9,15 +9,18 @@ App.Quiz.prototype = {
 
 }
 
-// App.Question = function(config) {
-//   this.question_id = config.question_id;
-//   this.question = config.question;
-//   this.choices = config.choices;
-// }
+App.Question = function(config) {
+  this.quiz_id = config.quiz_id;
+  this.question_id = config.question_id;
+  this.question = config.question;
+  this.choices = config.choices;
+}
 
-// App.Question.prototype = {
+App.Question.prototype = {
 
-// }
+}
+
+
 
 // App.Choice = function(config){
 //   this.choice_id = config.choice_id;

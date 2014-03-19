@@ -2,17 +2,29 @@ App.View = function(){}
 
 App.View.prototype = {
   update: function(dataSource){
-    this.updateQuiz(dataSource);
+    if (dataSource.question){
+      this.updateQuestion(dataSource);
+    } else {
+      this.updateQuiz(dataSource);
+    }
   },
   updateQuiz: function(quizzes){
-    var source = this.generateSource($('#quizzes'));
-    var template = Handlebars.compile(source);
+    // debugger;
+    var template = this.generateTemplate($('#quizzes'));
     var html = template(quizzes);
     $(".container").append(html);
   },
-  generateSource: function(jQ){
+  updateQuestion: function(dataSource){
+    var template = this.generateTemplate($('#question'));
+    var html = template(dataSource.question);
+    // debugger;
+    $(".container").empty();
+    $(".container").append(html);
+  },
+  generateTemplate: function(jQ){
     var source = jQ.css("display","block").html();
-    return source;
+    var template = Handlebars.compile(source);
+    return template;
   }
 
 }
