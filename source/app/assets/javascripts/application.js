@@ -12,4 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require handlebars-v1.3.0.js
+//= require models.js
+//= require view.js
+//= require controller.js
 //= require_tree .
