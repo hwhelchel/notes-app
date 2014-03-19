@@ -20,15 +20,29 @@ App.Question.prototype = {
 
 }
 
+App.Choice = function(config){
+  this.choice = config.choice;
+  this.choice_id = config.choice_id;
+  this.question_id = config.question_id;
+  this.quiz_id = config.quiz_id;
+}
 
+App.Choice.prototype = {
 
-// App.Choice = function(config){
-//   this.choice_id = config.choice_id;
-//   this.question_id = config.question_id;
-//   this.quiz_id = config.quiz_id;
-//   this.choice = config.choice;
-// }
+}
 
-// App.Choice.prototype = {
+App.Answer = function(config){
+  this.correct = config.correct;
+  this.correct_choice_id = config.correct_choice_id;
+  this.more_questions = config.more_questions;
+  this.num_correct = config.num_correct;
+  this.num_incorrect = config.num_incorrect;
+  this.choice_id = config.submitted_choice_id;
+  this.question_id = config.question_id;
+  this.quiz_id = config.quiz_id;
+  // this.choice = config.choice;
+}
 
-// }
+App.Answer.prototype = {
+
+}

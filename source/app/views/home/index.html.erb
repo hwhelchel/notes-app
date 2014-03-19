@@ -1,20 +1,23 @@
 <div class="container">
-  NOTHING TO SEE HERE!
+  <h1>Welcome to Boring Quiz!</h1>
+  <h3>Here's a list of pointless quizzes you can take!</h3>
 </div>
 
 <div id="templates" style="display:none">
  <div id="quizzes">
   {{#each quizzes}}
-      <a href="/quizzes/{{quiz_id}}/questions/next.json">{{name}}</a>
+      {{quiz_id}}. <a class="quiz" href="/quizzes/{{quiz_id}}/questions/next.json">{{name}}</a><br>
   {{/each}}
   </div>
 
 <div id="question">
+  {{#questions}}
   <h2>{{question}}</h2>
   <ul>
     {{#each choices}}
-    <li>{{this.choice}}</li>
+    <li><a class="choice" href="/questions/{{question_id}}/answers.json" data-choice="{{this.choice_id}}">{{this.choice}}</a></li>
     {{/each}}
   </ul>
+  {{/questions}}
 </div>
 </div>

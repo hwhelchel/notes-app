@@ -1,23 +1,26 @@
+App.targets = {
+  questionSel: ".quiz",
+  choiceSel: ".choice"
+}
+
 App.View = function(){}
 
 App.View.prototype = {
   update: function(dataSource){
-    if (dataSource.question){
-      this.updateQuestion(dataSource);
+    if (dataSource.questions){
+      this.updateQuestions(dataSource);
     } else {
       this.updateQuiz(dataSource);
     }
   },
   updateQuiz: function(quizzes){
-    // debugger;
     var template = this.generateTemplate($('#quizzes'));
     var html = template(quizzes);
     $(".container").append(html);
   },
-  updateQuestion: function(dataSource){
+  updateQuestions: function(dataSource){
     var template = this.generateTemplate($('#question'));
-    var html = template(dataSource.question);
-    // debugger;
+    var html = template({questions: dataSource.questions});
     $(".container").empty();
     $(".container").append(html);
   },

@@ -16,4 +16,5 @@
 //= require models.js
 //= require view.js
 //= require controller.js
+//= require binder.js
 //= require_tree .
