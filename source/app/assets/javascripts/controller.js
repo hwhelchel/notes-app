@@ -83,7 +83,8 @@ App.Controller.prototype = {
         controller.appData.msg = "Correct!";
         controller.fetchQuestion(controller.appData.questionPath);
       } else if (resp.status.correct && !resp.status.more_questions){
-        controller.appData.msg = "Correct! And you're done!!";
+        controller.appData.msg = "Correct!";
+        controller.appData.gameOver = true;
       } else {
         controller.appData.msg = "Wrong answer."
       }

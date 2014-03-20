@@ -40,7 +40,6 @@ App.Answer = function(config){
   this.choice_id = config.submitted_choice_id;
   this.question_id = config.question_id;
   this.quiz_id = config.quiz_id;
-  // this.choice = config.choice;
 }
 
 App.Answer.prototype = {
