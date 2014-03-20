@@ -10,14 +10,20 @@
   {{/each}}
   </div>
 
-<div id="question">
-  {{#questions}}
-  <h2>{{question}}</h2>
-  <ul>
-    {{#each choices}}
-    <li><a class="choice" href="/questions/{{question_id}}/answers.json" data-choice="{{this.choice_id}}">{{this.choice}}</a></li>
-    {{/each}}
-  </ul>
-  {{/questions}}
-</div>
+  <div id="question">
+    <h2>{{question}}</h2>
+    <ul>
+      {{#each choices}}
+      <li>
+        <a class="choice" href="/questions/{{question_id}}/answers.json" data-choice="{{this.choice_id}}">{{this.choice}}</a>
+      </li>
+      {{/each}}
+    </ul>
+  </div>
+  <div id="answer">
+    <h2></h2>
+  </div>
+  <div id="message">
+    <h2>{{message}}</h2>
+  </div>
 </div>

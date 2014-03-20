@@ -52,6 +52,7 @@ App.Controller.prototype = {
   },
   fetchQuestion: function(tag){
     var controller = this;
+    controller.appData.questionPath = tag;
     var config = {};
     config.url = $(tag).attr("href");
     config.type = 'GET';
@@ -78,8 +79,16 @@ App.Controller.prototype = {
     config.data.session_key = controller.appData.token;
     config.done = function(resp){
       console.log(resp);
-      controller.recordAnswer(resp.status);
-      controller.view.update(controller.appData);
+      if (resp.status.correct && resp.status.more_questions) {
+        controller.appData.msg = "Correct!";
+        controller.fetchQuestion(controller.appData.questionPath);
+      } else if (resp.status.correct && !resp.status.more_questions){
+        controller.appData.msg = "Correct! And you're done!!";
+      } else {
+        controller.appData.msg = "Wrong answer."
+      }
+        controller.recordAnswer(resp.status);
+        controller.view.update(controller.appData);
     };
     config.fail = function(resp){
       console.log('fail');
