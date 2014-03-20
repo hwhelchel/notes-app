@@ -3,30 +3,29 @@
   <h3>Here's a list of pointless quizzes you can take!</h3>
 </div>
 
-<div id="templates" style="display:none">
- <div id="quizzes">
-  {{#each quizzes}}
-      {{quiz_id}}. <a class="quiz" href="/quizzes/{{quiz_id}}/questions/next.json">{{name}}</a><br>
-  {{/each}}
-  </div>
 
-  <div id="question">
-    <h2>{{question}}</h2>
-    <ul>
-      {{#each choices}}
-      <li>
-        <a class="choice" href="/questions/{{question_id}}/answers.json" data-choice="{{this.choice_id}}">{{this.choice}}</a>
-      </li>
-      {{/each}}
-    </ul>
-  </div>
-  <div id="score">
+<script id="question" type="text/x-handlebars-template">
+  <h2>{{question}}</h2>
+  <ul>
+    {{#each choices}}
+    <li>
+      <a class="choice" href="/questions/{{question_id}}/answers.json" data-choice="{{this.choice_id}}">{{this.choice}}</a>
+    </li>
+    {{/each}}
+  </ul>
+</script>
+  <script id="score" type="text/x-handlebars-template">
     <h2>Your total number of correct answer(s): </h2>
     <h1>{{num_correct}}</h1>
     <h2>Your total number of incorrect answer(s): </h2>
     <h1>{{num_incorrect}}</h1>
-  </div>
-  <div id="message">
+  </script>
+  <script id="message" type="text/x-handlebars-template">
     <h2>{{message}}</h2>
-  </div>
-</div>
+  </script>
+
+ <script id="quizzes" type="text/x-handlebars-template">
+  {{#each quizzes}}
+      {{quiz_id}}. <a class="quiz" href="/quizzes/{{quiz_id}}/questions/next.json">{{name}}</a><br>
+  {{/each}}
+  </script>
